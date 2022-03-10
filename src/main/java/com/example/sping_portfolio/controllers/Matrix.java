@@ -27,9 +27,22 @@ public class Matrix {
         }
 
         String matrixB = "";
-        for (int i = matrixS.length()-1; i >= 0; i--){
-                matrixB += matrixS.charAt(i);
+
+        for(int i=0; i < matrix.length; i++){
+            for(int j=0; j < matrix[i].length; j++){
+                if (matrix[i][j] == -1){
+                    matrixB = "  " + matrixB;
+                }
+                else {
+                    matrixB = Integer.toHexString(matrix[i][j]) + " " + matrixB;
+                }
+
+            }
+            matrixB = "\n" + matrixB;
         }
+//        for (int i = matrixS.length()-1; i >= 0; i--){
+//                matrixB += matrixS.charAt(i);
+//        }
         matrixS = matrixS + matrixB;
         return(matrixS);
     }
