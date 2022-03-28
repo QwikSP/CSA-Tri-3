@@ -1,95 +1,66 @@
 //package com.example.sping_portfolio.controllers.LinkedLists2;
 //
 //import java.util.*;
+//import funcMaster;
 //
-///**
-// *  Implementation of Stack, using LinkedList (previous only).
-// *  December 24, 2019
-// * @author     John Mortensen
-// *
-// */
-//public class Stack
-//{
-//    private LinkedList lifo;  // last in first out Object of stack
 //
-//    /**
-//     *  Constructor for the SinglyLinkedList object
-//     *  Generates an empty list.
-//     */
-//    public Stack()
-//    {
-//        lifo = null;
+//
+//
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
+//
+//public class Stack extends stack2 {
+//
+//    public Stack(String selection) {
+//        super.selection = selection;
 //    }
 //
-//    /**
-//     *  Returns the current (LIFO) objects value.
-//     *
-//     * @return  the current objects value in Stack.
-//     */
-//    public Object peek()
-//    {
-//        if (lifo == null)
-//            return null;
-//        else
-//            return lifo.getObject();
-//    }
+//    @Override
+//    public void run() {
+//        //initialize queues
+//        List<Integer> list = Arrays.asList(1, 2, 3, 4);
+//        Queue<Integer> start = new Queue();
 //
-//    /**
-//     *  Inserts a new object at the top of this Stack,
-//     *
-//     * @param  value  is the database to be inserted at the top of the Stack.
-//     */
-//    public void push(Object value)
-//    {
-//        // note the order that things happen:
-//        // the new object becomes current and gets a value
-//        // current lifo is parameter, it is assigned as previous node in lifo
-//        lifo = new LinkedList(value, lifo);
-//    }
-//
-//    /**
-//     *  Removes the top element in the Stack.  Garbage collection should destroy this element when needed.
-//     *
-//     */
-//    public Object pop()
-//    {
-//        Object value = null;
-//
-//        if (lifo != null) {
-//            value = lifo.getObject();
-//            lifo = lifo.getPrevious();
+//        for(int num : list) {
+//            start.push(num);
 //        }
 //
-//        return value;
-//    }
+//        //create stack
+//        stack2<Integer> output = new stack2();
 //
-//    /**
-//     *  Returns a string representation of this Stack,
-//     *  polymorphic nature of toString overrides of standard System.out.print behavior
-//     *
-//     * @return    string representation of this list
-//     */
-//    public String toString()
-//    {
-//        StringBuilder stackToString = new StringBuilder("[");
+//        //move queue elements into stack
+//        int j = start.length();
+//        for(int i = 0; i < j; i++) {
+//            output.push(start.peek());
+//            start.pop();
+//        }
 //
-//        LinkedList node = lifo;  				// start from the back
-//        while (node != null)
-//        {
-//            stackToString.append(node.getObject()); 	// append the database to output string
-//            node = node.getPrevious();    		// go to previous node
-//            if (node != null)
-//                stackToString.append(", ");
-//        }										// loop 'till you reach the beginning
-//        stackToString.append("]");
-//        return stackToString.toString();
-//    }
-//    public static void main(String[] args)
-//    {
-//        // Create iterable Queue of Words
-//        Object[] number2 = new String[] { "2", "3", "6", "7"};
-//        QueueManager nunmb = new QueueManager(number2);
-//        nunmb.removeList(words);
+//        //put stack into a list
+//        ArrayList<Integer> output_list = new ArrayList<Integer>();
 //
+//        int k = output.length();
+//        for(int i = 0; i < k; i++) {
+//            output_list.add(output.peek());
+//            output.pop();
+//        }
+//
+//        //display output
+//        System.out.print("Before: ");
+//
+//        System.out.println(list
+//                .toString()
+//                .replaceAll("\\[|\\]", "")
+//                .replaceAll(" "," ")
+//                .replaceAll(",", " "));
+//
+//        System.out.print("After: ");
+//        System.out.println(output_list
+//                .toString()
+//                .replaceAll("\\[|\\]", "")
+//                .replaceAll(" "," ")
+//                .replaceAll(",", " "));
 //    }
 //}
+//
+//
