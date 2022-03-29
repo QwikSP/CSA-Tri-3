@@ -1,9 +1,6 @@
 package com.example.sping_portfolio.controllers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Calculator {
 
@@ -219,7 +216,12 @@ public class Calculator {
         Calculator allMath2 = new Calculator("200 % (300 + 5 + 300) / 200 + 1 * 100");
         System.out.println("All Math2\n" + allMath2);
 
-//        Calculator allMath3 = new Calculator("200 % sqrt(300 + 5 + 300) / 200 + 1 * 100");
-//        System.out.println("All Math2\n" + allMath2);
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter problem");
+
+        String userName = myObj.nextLine();  // Read user input
+        Calculator user = new Calculator(userName);
+        System.out.println(user);
+
     }
 }
