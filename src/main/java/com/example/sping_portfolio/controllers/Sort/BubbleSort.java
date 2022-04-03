@@ -1,29 +1,39 @@
-//package com.example.sping_portfolio.controllers.Sort;
-//
-//import java.lang.reflect.Array;
-//import java.util.ArrayList;
-//
-//public class BubbleSort {
-//
-//    ArrayList<Integer> temp = new ArrayList<>();
-//    public BubbleSort(ArrayList original) {
-//        int temp;
-//        int original.
-//                for (check = true) {
-//
-//            if (original.get(i)
+package com.example.sping_portfolio.controllers.Sort;
+
+import java.util.ArrayList;
+
+public class BubbleSort extends Sorts {
+
+    private int swap = 0;
+    private int comparison = 0;
+    ArrayList sorted;
+    public BubbleSort(int size) {
+        super(size);
+
+    }
+
+
+    public ArrayList<Integer> sort(ArrayList original) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        temp = original;
+        int n = temp.size();
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (temp.get(j) > temp.get(j+1))
+                {
+                    comparison++;
+                    swap++;
+                    // swap arr[j+1] and arr[j]
+                    int tempNub = temp.get(j);
+                    temp.set(j, temp.get(j+1));
+                    temp.set(j+1, tempNub);
+                }
+//        System.out.print("(");
+//        for (Integer p : temp) {
+//            System.out.print(p + " ,");
 //        }
-//
-//    }
-//    public static void main(String[] args) {
-//
-//        ArrayList<Integer> original = new ArrayList<>();
-//        original.add(1);
-//        original.add(50);
-//        original.add(10);
-//        original.add(2);
-//        original.add(80);
-//
-//
-//    }
-//}
+//        System.out.print(")");
+        System.out.println("# of swaps: " + swap + "     # of comparisons: " + comparison);
+        return temp;
+    }
+}
